@@ -77,7 +77,7 @@ class Weather:
                 station = entry["station"]
 
                 cur.execute(
-                    "INSERT INTO weather VALUES (?, ?, ?)", (date, value, station)
+                    "INSERT OR IGNORE INTO weather VALUES (?, ?, ?)", (date, value, station)
                 )
 
             self.conn.commit()
